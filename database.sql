@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS sim_data;
+USE sim_data;
+
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    lang_preference VARCHAR(2) DEFAULT 'id'
+);
+
+CREATE TABLE mahasiswa (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nim VARCHAR(10) NOT NULL UNIQUE,
+    nama VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    jurusan VARCHAR(100) NOT NULL,
+    angkatan YEAR NOT NULL
+);
