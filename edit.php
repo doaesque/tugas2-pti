@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $angkatan = htmlspecialchars(trim($_POST['angkatan']));
 
     // proses update data ke database
-    $stmt = $pdo->prepare("UPDATE mahasiswa SET nim = :nim, nama = :nama, email = :email, jurusan = :jurusan, angkatan = :angkatan WHERE id = :id");[cite: 79]
+    $stmt = $pdo->prepare("UPDATE mahasiswa SET nim = :nim, nama = :nama, email = :email, jurusan = :jurusan, angkatan = :angkatan WHERE id = :id");
     $stmt->execute([
         ':nim' => $nim, 
         ':nama' => $nama, 

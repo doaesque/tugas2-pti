@@ -2,13 +2,13 @@
 session_start();
 require 'koneksi.php';
 
-// proteksi halaman, cek user udah login apa belum
+// proteksi halaman, cek user udh login apa blm
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// ngatur preferensi bahasa dari sesi
+// ngatur preferensi bahasa dr sesi
 if (isset($_GET['lang'])) {
     $_SESSION['lang'] = htmlspecialchars($_GET['lang']);
 }
@@ -20,20 +20,20 @@ $text = [
     'en' => ['title' => 'Student Data', 'add' => 'Add Data', 'logout' => 'Logout', 'nim' => 'Student ID', 'nama' => 'Name', 'email' => 'Email', 'jurusan' => 'Major', 'angkatan' => 'Batch', 'aksi' => 'Action', 'edit' => 'Edit', 'delete' => 'Delete', 'confirm' => 'Are you sure?']
 ];
 
-// modul delete: ngehapus data dari database
+// modul delete: ngehapus data dr database
 if (isset($_GET['hapus'])) {
     $id = htmlspecialchars($_GET['hapus']);
     // pake prepared statement buat cegah sql injection
-    $stmt = $pdo->prepare("DELETE FROM mahasiswa WHERE id = :id");[cite: 80, 157]
+    $stmt = $pdo->prepare("DELETE FROM mahasiswa WHERE id = :id");
     $stmt->execute([':id' => $id]);
     header("Location: index.php");
     exit;
 }
 
-// modul read: ngambil semua data mahasiswa
-$stmt = $pdo->prepare("SELECT * FROM mahasiswa ORDER BY nama ASC");[cite: 78]
+// modul read: ngambil smua data mahasiswa
+$stmt = $pdo->prepare("SELECT * FROM mahasiswa ORDER BY nama ASC");
 $stmt->execute();
-$mahasiswa = $stmt->fetchAll(PDO::FETCH_ASSOC);[cite: 72]
+$mahasiswa = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="<?= $lang ?>">

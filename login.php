@@ -10,8 +10,8 @@ $lang = isset($_SESSION['lang']) ? $_SESSION['lang'] : 'id';
 
 // kamus bahasa sederhana
 $text = [
-    'id' => ['title' => 'Masuk', 'user' => 'Nama Pengguna', 'pass' => 'Kata Sandi', 'btn' => 'Masuk', 'err' => 'Username atau password salah!', 'empty' => 'Data tidak boleh kosong!'],
-    'en' => ['title' => 'Login', 'user' => 'Username', 'pass' => 'Password', 'btn' => 'Login', 'err' => 'Invalid username or password!', 'empty' => 'Data cannot be empty!']
+    'id' => ['title' => 'Masuk', 'user' => 'Nama Pengguna', 'pass' => 'Kata Sandi', 'btn' => 'Masuk', 'err' => 'Username atau password salah!', 'empty' => 'Data tidak boleh kosong!', 'reg' => 'Daftar akun baru'],
+    'en' => ['title' => 'Login', 'user' => 'Username', 'pass' => 'Password', 'btn' => 'Login', 'err' => 'Invalid username or password!', 'empty' => 'Data cannot be empty!', 'reg' => 'Register new account']
 ];
 
 $error_msg = '';
@@ -67,5 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         <button type="submit"><?= $text[$lang]['btn'] ?></button>
     </form>
+    
+    <p><a href="register.php"><?= $text[$lang]['reg'] ?></a></p>
 </body>
 </html>
